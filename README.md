@@ -8,7 +8,8 @@
 
 - ⏰ **定时执行**: 周一到周五北京时间 10:00（GitHub Actions cron）
 - 📰 **RSS 抓取**: 从 20 个高质量源抓取最近 48 小时内容
-- 🤖 **智能筛选**: 使用 OpenAI API 对内容打分（0~10），选择 Top 3
+- 🤖 **智能筛选**: 使用大模型 API 对内容打分（0~10），选择 Top 3
+- 🔧 **多模型支持**: 支持 OpenAI / 通义千问（Qwen）
 - 📊 **角色化日报**: 针对老板、产品、工程师等 10 个角色输出影响分析
 - 🔔 **飞书推送**: 发送 interactive card，支持签名校验
 - 🔄 **去重机制**: 基于 sha256(link) 去重，持久化到 `data/sent_hashes.txt`
@@ -25,9 +26,23 @@ Fork 到你的 GitHub 账号下。
 
 进入仓库 **Settings > Secrets and variables > Actions > New repository secret**，添加以下 Secrets：
 
+#### 方案 A：使用 OpenAI
+
 | Secret 名称 | 说明 | 示例 |
 |-------------|------|------|
+| `LLM_PROVIDER` | 模型提供商 | `openai` |
 | `OPENAI_API_KEY` | OpenAI API Key | `sk-...` |
+| `FEISHU_WEBHOOK_URL` | 飞书自定义机器人 Webhook URL | `https://open.feishu.cn/open-apis/bot/v2/hook/...` |
+| `FEISHU_SECRET` | 飞书机器人签名密钥（可选） | `abc123...` |
+| `RSS_URLS` | RSS 源列表（多行文本，每行一个 URL） | 见下方示例 |
+
+#### 方案 B：使用通义千问（推荐国内用户）
+
+| Secret 名称 | 说明 | 示例 |
+|-------------|------|------|
+| `LLM_PROVIDER` | 模型提供商 | `qwen` |
+| `DASHSCOPE_API_KEY` | 阿里云 DashScope API Key | `sk-...` |
+| `QWEN_MODEL` | 通义千问模型名称（可选，默认 qwen-plus） | `qwen-plus` 或 `qwen-max` |
 | `FEISHU_WEBHOOK_URL` | 飞书自定义机器人 Webhook URL | `https://open.feishu.cn/open-apis/bot/v2/hook/...` |
 | `FEISHU_SECRET` | 飞书机器人签名密钥（可选） | `abc123...` |
 | `RSS_URLS` | RSS 源列表（多行文本，每行一个 URL） | 见下方示例 |
@@ -79,12 +94,27 @@ pip install -r requirements.txt
 
 ### 设置环境变量
 
+#### 使用 OpenAI
+
 ```bash
+export LLM_PROVIDER="openai"
 export OPENAI_API_KEY="sk-..."
 export FEISHU_WEBHOOK_URL="https://open.feishu.cn/open-apis/bot/v2/hook/..."
 export FEISHU_SECRET="abc123..."
 export RSS_URLS="https://openai.com/blog/rss.xml
-https://www.anthropic.com/news/rss.xml"
+https://blog.langchain.com/rss"
+```
+
+#### 使用通义千问
+
+```bash
+export LLM_PROVIDER="qwen"
+export DASHSCOPE_API_KEY="sk-..."
+export QWEN_MODEL="qwen-plus"
+export FEISHU_WEBHOOK_URL="https://open.feishu.cn/open-apis/bot/v2/hook/..."
+export FEISHU_SECRET="abc123..."
+export RSS_URLS="https://openai.com/blog/rss.xml
+https://blog.langchain.com/rss"
 ```
 
 ### 运行脚本

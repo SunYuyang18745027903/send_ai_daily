@@ -3,7 +3,7 @@
 """
 AI 日报自动化系统
 - 从 RSS 源抓取最近 48 小时内容
-- 使用 OpenAI API 评分并生成日报
+- 使用大模型 API 评分并生成日报（支持 OpenAI / 通义千问）
 - 发送到飞书群（自定义机器人 + 签名校验）
 - 基于 sha256(link) 去重
 """
@@ -25,9 +25,17 @@ from dateutil import parser as date_parser
 
 
 # ==================== 配置 ====================
+# LLM 配置（支持 OpenAI 或通义千问）
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").lower()  # openai 或 qwen
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY", "")
+QWEN_MODEL = os.getenv("QWEN_MODEL", "qwen-plus")
+
+# 飞书配置
 FEISHU_WEBHOOK_URL = os.getenv("FEISHU_WEBHOOK_URL", "")
 FEISHU_SECRET = os.getenv("FEISHU_SECRET", "")
+
+# RSS 配置
 RSS_URLS_RAW = os.getenv("RSS_URLS", "")
 
 RSS_URLS = [line.strip() for line in RSS_URLS_RAW.strip().split("\n") if line.strip()]
@@ -116,7 +124,15 @@ def fetch_rss_entries() -> List[Dict]:
     return candidates
 
 
-# ==================== OpenAI API 调用 ====================
+# ==================== LLM API 调用 ====================
+def call_llm_json(system_prompt: str, user_prompt: str) -> Dict:
+    """调用大模型 API，要求返回 JSON（支持 OpenAI / 通义千问）"""
+    if LLM_PROVIDER == "qwen":
+        return call_qwen_json(system_prompt, user_prompt)
+    else:
+        return call_openai_json(system_prompt, user_prompt)
+
+
 def call_openai_json(system_prompt: str, user_prompt: str, model: str = "gpt-4o-2024-08-06") -> Dict:
     """调用 OpenAI API，要求返回 JSON"""
     url = "https://api.openai.com/v1/chat/completions"
@@ -140,6 +156,37 @@ def call_openai_json(system_prompt: str, user_prompt: str, model: str = "gpt-4o-
         return json.loads(content)
     except Exception as e:
         print(f"[ERROR] OpenAI API 调用失败: {e}")
+        sys.exit(1)
+
+
+def call_qwen_json(system_prompt: str, user_prompt: str) -> Dict:
+    """调用通义千问 API，要求返回 JSON"""
+    url = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {DASHSCOPE_API_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    # 合并 system 和 user prompt
+    combined_prompt = f"{system_prompt}\n\n{user_prompt}"
+
+    payload = {
+        "model": QWEN_MODEL,
+        "messages": [
+            {"role": "user", "content": combined_prompt}
+        ],
+        "response_format": {"type": "json_object"}
+    }
+
+    try:
+        resp = requests.post(url, headers=headers, json=payload, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+        content = data["choices"][0]["message"]["content"]
+        return json.loads(content)
+    except Exception as e:
+        print(f"[ERROR] 通义千问 API 调用失败: {e}")
+        print(f"[DEBUG] 响应内容: {resp.text if 'resp' in locals() else 'No response'}")
         sys.exit(1)
 
 
@@ -172,7 +219,7 @@ def score_entries(entries: List[Dict]) -> List[Dict]:
   ]
 }}"""
 
-    result = call_openai_json(system_prompt, user_prompt)
+    result = call_llm_json(system_prompt, user_prompt)
     scores = result.get("scores", [])
 
     # 按 score 排序，取 Top N
@@ -223,7 +270,7 @@ def generate_daily_report(top_entries: List[Dict]) -> Dict:
 
 {json.dumps(top_entries, ensure_ascii=False, indent=2)}"""
 
-    return call_openai_json(system_prompt, user_prompt)
+    return call_llm_json(system_prompt, user_prompt)
 
 
 # ==================== 飞书推送 ====================
