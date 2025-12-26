@@ -11,17 +11,17 @@
       },
       {
         "name": "Anthropic News",
-        "rss_url": "https://www.anthropic.com/news/rss.xml",
+        "rss_url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
         "focus": "Claude 模型发布与安全研究",
-        "reason": "Claude 在长文本与安全性上的优势，适合企业内部合规场景",
+        "reason": "Claude 在长文本与安全性上的优势，适合企业内部合规场景（社区维护 RSS）",
         "tags": ["model-update", "safety", "context-window"]
       },
       {
-        "name": "Google AI Blog",
-        "rss_url": "https://ai.googleblog.com/feeds/posts/default",
-        "focus": "Gemini / PaLM / Vertex AI 更新",
-        "reason": "Google Cloud AI 平台能力，适合已使用 GCP 的企业",
-        "tags": ["model-update", "platform", "multimodal"]
+        "name": "Google Research Blog",
+        "rss_url": "https://blog.research.google/feeds/posts/default",
+        "focus": "Gemini / AI 研究最新进展",
+        "reason": "Google AI 研究团队官方博客，涵盖模型更新与前沿研究",
+        "tags": ["model-update", "research", "multimodal"]
       },
       {
         "name": "Hugging Face Blog",
@@ -44,17 +44,17 @@
     "items": [
       {
         "name": "LangChain Blog",
-        "rss_url": "https://blog.langchain.dev/rss/",
+        "rss_url": "https://blog.langchain.com/rss",
         "focus": "Agent / RAG / Tool Use 最佳实践",
         "reason": "LangChain 是 Agent 框架标准，官方博客涵盖实战案例与模式演进",
         "tags": ["agent", "rag", "tool-use", "engineering"]
       },
       {
-        "name": "Pinecone Blog",
-        "rss_url": "https://www.pinecone.io/blog/rss.xml",
-        "focus": "向量数据库与 RAG 系统设计",
-        "reason": "向量检索是 RAG 核心，Pinecone 博客涵盖索引优化、混合检索等",
-        "tags": ["rag", "vector-db", "retrieval"]
+        "name": "LlamaIndex Blog",
+        "rss_url": "https://www.llamaindex.ai/blog/rss.xml",
+        "focus": "RAG 框架与数据连接器",
+        "reason": "专注 RAG 的框架，提供企业级数据集成与检索优化方案",
+        "tags": ["rag", "data-connector", "retrieval"]
       },
       {
         "name": "Weaviate Blog",
@@ -64,11 +64,11 @@
         "tags": ["vector-db", "open-source", "knowledge-graph"]
       },
       {
-        "name": "Modal Blog",
-        "rss_url": "https://modal.com/blog/rss",
-        "focus": "Serverless GPU、模型部署",
-        "reason": "模型推理成本与弹性是企业关注点，Modal 提供工程化方案",
-        "tags": ["deployment", "cost", "serverless"]
+        "name": "AssemblyAI Blog",
+        "rss_url": "https://www.assemblyai.com/blog/rss.xml",
+        "focus": "语音 AI 与多模态应用",
+        "reason": "语音识别与音频 AI 领域的工程实践，适合多模态应用开发",
+        "tags": ["multimodal", "speech", "engineering"]
       },
       {
         "name": "Replicate Blog",
@@ -90,18 +90,18 @@
         "tags": ["product", "ux", "case-study"]
       },
       {
-        "name": "a16z AI Blog",
-        "rss_url": "https://a16z.com/tag/ai/feed/",
-        "focus": "AI 市场趋势与投资方向",
-        "reason": "硅谷顶级 VC 视角，帮助老板与市场团队把握行业风向",
-        "tags": ["market", "investment", "trend"]
+        "name": "AI News by MIT Technology Review",
+        "rss_url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+        "focus": "AI 技术趋势与产业影响",
+        "reason": "权威科技媒体视角，深度分析 AI 技术与商业影响",
+        "tags": ["market", "technology", "trend"]
       },
       {
-        "name": "The Batch (deeplearning.ai)",
-        "rss_url": "https://www.deeplearning.ai/the-batch/feed/",
-        "focus": "AI 行业周报（技术 + 应用）",
-        "reason": "Andrew Ng 团队出品，信噪比高，覆盖全球 AI 动态",
-        "tags": ["weekly", "case-study", "education"]
+        "name": "VentureBeat AI",
+        "rss_url": "https://venturebeat.com/category/ai/feed/",
+        "focus": "AI 产业新闻与应用案例",
+        "reason": "科技媒体聚焦 AI 产品发布与企业应用落地",
+        "tags": ["news", "case-study", "product"]
       },
       {
         "name": "Simon Willison's Weblog",
@@ -111,11 +111,11 @@
         "tags": ["tool", "prompt", "engineering"]
       },
       {
-        "name": "Towards Data Science (AI 标签)",
-        "rss_url": "https://towardsdatascience.com/feed/tagged/artificial-intelligence",
-        "focus": "数据科学 + AI 应用案例",
-        "reason": "Medium 顶级出版物，覆盖算法、工程、应用全链路",
-        "tags": ["case-study", "algorithm", "engineering"]
+        "name": "The New Stack AI",
+        "rss_url": "https://thenewstack.io/tag/ai/feed/",
+        "focus": "AI 工程与云原生架构",
+        "reason": "聚焦 AI 应用的工程化与基础设施，适合后端与平台团队",
+        "tags": ["infrastructure", "engineering", "cloud-native"]
       }
     ]
   },
@@ -123,18 +123,18 @@
     "category": "高信噪个人作者 / 技术博客",
     "items": [
       {
-        "name": "Hamel Husain's Blog",
-        "rss_url": "https://hamel.dev/blog/index.xml",
-        "focus": "LLM Ops、Prompt Engineering",
-        "reason": "前 GitHub Copilot 团队成员，深度实践分享",
-        "tags": ["llmops", "prompt", "engineering"]
+        "name": "Jay Alammar's Blog",
+        "rss_url": "http://jalammar.github.io/feed.xml",
+        "focus": "AI 模型可视化讲解",
+        "reason": "通过可视化讲解 Transformer、BERT、GPT 等模型原理，适合技术学习",
+        "tags": ["education", "visualization", "transformer"]
       },
       {
-        "name": "Eugene Yan",
-        "rss_url": "https://eugeneyan.com/feed.xml",
-        "focus": "ML 系统设计、推荐系统",
-        "reason": "Amazon/Lazada 资深工程师,系统设计方法论扎实",
-        "tags": ["system-design", "ml", "engineering"]
+        "name": "Vicki Boykis",
+        "rss_url": "https://vickiboykis.com/feed/",
+        "focus": "ML 工程实践与数据平台",
+        "reason": "资深 ML 工程师，分享真实的工程问题与解决方案",
+        "tags": ["ml-engineering", "data-platform", "practice"]
       },
       {
         "name": "Chip Huyen's Blog",
@@ -144,11 +144,11 @@
         "tags": ["mlops", "product", "system-design"]
       },
       {
-        "name": "Sebastian Raschka",
-        "rss_url": "https://sebastianraschka.com/blog/index.xml",
-        "focus": "深度学习、LLM 训练",
-        "reason": "Lightning AI 研究员，模型训练底层细节",
-        "tags": ["training", "optimization", "research"]
+        "name": "Lilian Weng's Blog",
+        "rss_url": "https://lilianweng.github.io/feed.xml",
+        "focus": "深度学习、强化学习理论",
+        "reason": "OpenAI 安全团队负责人，深度技术博客涵盖前沿研究",
+        "tags": ["research", "rl", "safety"]
       },
       {
         "name": "Andrej Karpathy's Blog",
