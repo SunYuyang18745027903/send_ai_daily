@@ -1,0 +1,49 @@
+name: AI Daily Report
+
+on:
+  schedule:
+    - cron: '0 2 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  send-ai-daily:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run AI Daily script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+          RSS_URLS: ${{ secrets.RSS_URLS }}
+        run: python send_ai_daily.py
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push if changes
+        run: |
+          git add data/sent_hashes.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update sent hashes"
+            git push
+          else
+            echo "No changes to commit"
+          fi

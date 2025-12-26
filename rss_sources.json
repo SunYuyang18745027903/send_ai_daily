@@ -1,0 +1,162 @@
+[
+  {
+    "category": "模型 / 平台官方",
+    "items": [
+      {
+        "name": "OpenAI Blog",
+        "rss_url": "https://openai.com/blog/rss.xml",
+        "focus": "GPT-4/5 能力更新、API 新特性",
+        "reason": "第一手 OpenAI 模型更新与 API 变化，直接影响企业 AI 应用成本与能力边界",
+        "tags": ["model-update", "api", "cost"]
+      },
+      {
+        "name": "Anthropic News",
+        "rss_url": "https://www.anthropic.com/news/rss.xml",
+        "focus": "Claude 模型发布与安全研究",
+        "reason": "Claude 在长文本与安全性上的优势，适合企业内部合规场景",
+        "tags": ["model-update", "safety", "context-window"]
+      },
+      {
+        "name": "Google AI Blog",
+        "rss_url": "https://ai.googleblog.com/feeds/posts/default",
+        "focus": "Gemini / PaLM / Vertex AI 更新",
+        "reason": "Google Cloud AI 平台能力，适合已使用 GCP 的企业",
+        "tags": ["model-update", "platform", "multimodal"]
+      },
+      {
+        "name": "Hugging Face Blog",
+        "rss_url": "https://huggingface.co/blog/feed.xml",
+        "focus": "开源模型、推理优化、工具链",
+        "reason": "开源模型生态第一站，涵盖模型评测、量化、部署等工程实践",
+        "tags": ["open-source", "engineering", "deployment"]
+      },
+      {
+        "name": "Microsoft AI Blog",
+        "rss_url": "https://blogs.microsoft.com/ai/feed/",
+        "focus": "Azure OpenAI Service、Copilot",
+        "reason": "Azure AI 服务更新，适合微软生态企业",
+        "tags": ["platform", "enterprise", "copilot"]
+      }
+    ]
+  },
+  {
+    "category": "工程实践 / 系统设计",
+    "items": [
+      {
+        "name": "LangChain Blog",
+        "rss_url": "https://blog.langchain.dev/rss/",
+        "focus": "Agent / RAG / Tool Use 最佳实践",
+        "reason": "LangChain 是 Agent 框架标准，官方博客涵盖实战案例与模式演进",
+        "tags": ["agent", "rag", "tool-use", "engineering"]
+      },
+      {
+        "name": "Pinecone Blog",
+        "rss_url": "https://www.pinecone.io/blog/rss.xml",
+        "focus": "向量数据库与 RAG 系统设计",
+        "reason": "向量检索是 RAG 核心，Pinecone 博客涵盖索引优化、混合检索等",
+        "tags": ["rag", "vector-db", "retrieval"]
+      },
+      {
+        "name": "Weaviate Blog",
+        "rss_url": "https://weaviate.io/blog/rss.xml",
+        "focus": "向量搜索、知识图谱结合",
+        "reason": "开源向量数据库，适合自建 RAG 系统的企业",
+        "tags": ["vector-db", "open-source", "knowledge-graph"]
+      },
+      {
+        "name": "Modal Blog",
+        "rss_url": "https://modal.com/blog/rss",
+        "focus": "Serverless GPU、模型部署",
+        "reason": "模型推理成本与弹性是企业关注点，Modal 提供工程化方案",
+        "tags": ["deployment", "cost", "serverless"]
+      },
+      {
+        "name": "Replicate Blog",
+        "rss_url": "https://replicate.com/blog/rss",
+        "focus": "开源模型 API 化、推理优化",
+        "reason": "快速试用开源模型，降低自建成本",
+        "tags": ["open-source", "api", "deployment"]
+      }
+    ]
+  },
+  {
+    "category": "AI + 产品 / 应用",
+    "items": [
+      {
+        "name": "Lenny's Newsletter (AI 专栏)",
+        "rss_url": "https://www.lennysnewsletter.com/feed",
+        "focus": "AI 产品设计与用户体验",
+        "reason": "产品经理视角的 AI 应用落地，适合 PM 与售前",
+        "tags": ["product", "ux", "case-study"]
+      },
+      {
+        "name": "a16z AI Blog",
+        "rss_url": "https://a16z.com/tag/ai/feed/",
+        "focus": "AI 市场趋势与投资方向",
+        "reason": "硅谷顶级 VC 视角，帮助老板与市场团队把握行业风向",
+        "tags": ["market", "investment", "trend"]
+      },
+      {
+        "name": "The Batch (deeplearning.ai)",
+        "rss_url": "https://www.deeplearning.ai/the-batch/feed/",
+        "focus": "AI 行业周报（技术 + 应用）",
+        "reason": "Andrew Ng 团队出品，信噪比高，覆盖全球 AI 动态",
+        "tags": ["weekly", "case-study", "education"]
+      },
+      {
+        "name": "Simon Willison's Weblog",
+        "rss_url": "https://simonwillison.net/atom/everything/",
+        "focus": "LLM 工具、Prompt Engineering",
+        "reason": "实战派个人博客，快速试验新工具与技巧",
+        "tags": ["tool", "prompt", "engineering"]
+      },
+      {
+        "name": "Towards Data Science (AI 标签)",
+        "rss_url": "https://towardsdatascience.com/feed/tagged/artificial-intelligence",
+        "focus": "数据科学 + AI 应用案例",
+        "reason": "Medium 顶级出版物，覆盖算法、工程、应用全链路",
+        "tags": ["case-study", "algorithm", "engineering"]
+      }
+    ]
+  },
+  {
+    "category": "高信噪个人作者 / 技术博客",
+    "items": [
+      {
+        "name": "Hamel Husain's Blog",
+        "rss_url": "https://hamel.dev/blog/index.xml",
+        "focus": "LLM Ops、Prompt Engineering",
+        "reason": "前 GitHub Copilot 团队成员，深度实践分享",
+        "tags": ["llmops", "prompt", "engineering"]
+      },
+      {
+        "name": "Eugene Yan",
+        "rss_url": "https://eugeneyan.com/feed.xml",
+        "focus": "ML 系统设计、推荐系统",
+        "reason": "Amazon/Lazada 资深工程师,系统设计方法论扎实",
+        "tags": ["system-design", "ml", "engineering"]
+      },
+      {
+        "name": "Chip Huyen's Blog",
+        "rss_url": "https://huyenchip.com/feed.xml",
+        "focus": "ML Ops、AI 产品化",
+        "reason": "《Designing Machine Learning Systems》作者，企业 AI 落地必读",
+        "tags": ["mlops", "product", "system-design"]
+      },
+      {
+        "name": "Sebastian Raschka",
+        "rss_url": "https://sebastianraschka.com/blog/index.xml",
+        "focus": "深度学习、LLM 训练",
+        "reason": "Lightning AI 研究员，模型训练底层细节",
+        "tags": ["training", "optimization", "research"]
+      },
+      {
+        "name": "Andrej Karpathy's Blog",
+        "rss_url": "http://karpathy.github.io/feed.xml",
+        "focus": "神经网络、AI 教育",
+        "reason": "前 Tesla AI 总监、OpenAI 创始成员，深入浅出",
+        "tags": ["education", "research", "neural-network"]
+      }
+    ]
+  }
+]
