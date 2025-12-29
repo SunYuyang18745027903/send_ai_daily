@@ -102,6 +102,27 @@
         "focus": "云原生、AI 工程与基础设施",
         "reason": "聚焦 AI 应用的工程化与基础设施，适合后端与平台团队（使用全站 feed）",
         "tags": ["infrastructure", "engineering", "cloud-native"]
+      },
+      {
+        "name": "AWS Machine Learning Blog",
+        "rss_url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+        "focus": "企业级 ML 实践与 AWS AI 服务",
+        "reason": "AWS 官方 ML 博客，涵盖 SageMaker、Bedrock 等服务实战，适合云端 AI 部署",
+        "tags": ["enterprise", "mlops", "cloud", "deployment"]
+      },
+      {
+        "name": "机器之心",
+        "rss_url": "https://www.jiqizhixin.com/rss",
+        "focus": "中文 AI 资讯与产业动态",
+        "reason": "国内头部 AI 媒体，覆盖国内外 AI 技术与产业新闻，提供中国视角",
+        "tags": ["news", "china", "industry", "research"]
+      },
+      {
+        "name": "AI Snake Oil",
+        "rss_url": "https://www.aisnakeoil.com/feed",
+        "focus": "AI 批判性思考与风险评估",
+        "reason": "普林斯顿学者 Arvind Narayanan 主笔，揭示 AI 炒作与真实能力边界，帮助理性决策",
+        "tags": ["critical-thinking", "risk", "ethics", "research"]
       }
     ]
   },
