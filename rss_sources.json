@@ -17,25 +17,18 @@
         "tags": ["model-update", "safety", "context-window"]
       },
       {
-        "name": "Google Research Blog",
-        "rss_url": "https://blog.research.google/feeds/posts/default",
-        "focus": "Gemini / AI 研究最新进展",
-        "reason": "Google AI 研究团队官方博客，涵盖模型更新与前沿研究",
-        "tags": ["model-update", "research", "multimodal"]
+        "name": "Anthropic Research",
+        "rss_url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_research.xml",
+        "focus": "Claude 模型研究论文与技术深度分析",
+        "reason": "Anthropic 研究团队深度技术内容，涵盖模型安全、对齐与能力边界探索（社区维护 RSS）",
+        "tags": ["research", "safety", "alignment"]
       },
       {
-        "name": "Hugging Face Blog",
-        "rss_url": "https://huggingface.co/blog/feed.xml",
-        "focus": "开源模型、推理优化、工具链",
-        "reason": "开源模型生态第一站，涵盖模型评测、量化、部署等工程实践",
-        "tags": ["open-source", "engineering", "deployment"]
-      },
-      {
-        "name": "Microsoft AI Blog",
-        "rss_url": "https://blogs.microsoft.com/ai/feed/",
-        "focus": "Azure OpenAI Service、Copilot",
-        "reason": "Azure AI 服务更新，适合微软生态企业",
-        "tags": ["platform", "enterprise", "copilot"]
+        "name": "Google AI Blog",
+        "rss_url": "https://blog.google/technology/ai/rss/",
+        "focus": "Gemini / Google AI 产品与研究进展",
+        "reason": "Google AI 官方博客，涵盖 Gemini、搜索、产品更新（替代原 Research Blog）",
+        "tags": ["model-update", "product", "multimodal"]
       }
     ]
   },
@@ -50,32 +43,25 @@
         "tags": ["agent", "rag", "tool-use", "engineering"]
       },
       {
-        "name": "LlamaIndex Blog",
-        "rss_url": "https://www.llamaindex.ai/blog/rss.xml",
-        "focus": "RAG 框架与数据连接器",
-        "reason": "专注 RAG 的框架，提供企业级数据集成与检索优化方案",
-        "tags": ["rag", "data-connector", "retrieval"]
-      },
-      {
-        "name": "Weaviate Blog",
-        "rss_url": "https://weaviate.io/blog/rss.xml",
-        "focus": "向量搜索、知识图谱结合",
-        "reason": "开源向量数据库，适合自建 RAG 系统的企业",
-        "tags": ["vector-db", "open-source", "knowledge-graph"]
-      },
-      {
-        "name": "AssemblyAI Blog",
-        "rss_url": "https://www.assemblyai.com/blog/rss.xml",
-        "focus": "语音 AI 与多模态应用",
-        "reason": "语音识别与音频 AI 领域的工程实践，适合多模态应用开发",
-        "tags": ["multimodal", "speech", "engineering"]
-      },
-      {
         "name": "Replicate Blog",
         "rss_url": "https://replicate.com/blog/rss",
         "focus": "开源模型 API 化、推理优化",
-        "reason": "快速试用开源模型，降低自建成本",
+        "reason": "快速试用开源模型,降低自建成本",
         "tags": ["open-source", "api", "deployment"]
+      },
+      {
+        "name": "Claude Code Changelog",
+        "rss_url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_changelog_claude_code.xml",
+        "focus": "Claude Code 工具更新与新功能",
+        "reason": "追踪 Anthropic 官方 AI 编程助手的功能迭代，适合开发团队了解 AI coding 工具演进（社区维护 RSS）",
+        "tags": ["developer-tools", "changelog", "ai-coding"]
+      },
+      {
+        "name": "Pinecone Status",
+        "rss_url": "https://status.pinecone.io/history.rss",
+        "focus": "Pinecone 向量数据库服务状态",
+        "reason": "监控主流向量数据库服务稳定性，RAG 系统依赖方的故障预警",
+        "tags": ["vector-db", "infrastructure", "monitoring"]
       }
     ]
   },
@@ -111,10 +97,10 @@
         "tags": ["tool", "prompt", "engineering"]
       },
       {
-        "name": "The New Stack AI",
-        "rss_url": "https://thenewstack.io/tag/ai/feed/",
-        "focus": "AI 工程与云原生架构",
-        "reason": "聚焦 AI 应用的工程化与基础设施，适合后端与平台团队",
+        "name": "The New Stack",
+        "rss_url": "https://thenewstack.io/feed/",
+        "focus": "云原生、AI 工程与基础设施",
+        "reason": "聚焦 AI 应用的工程化与基础设施，适合后端与平台团队（使用全站 feed）",
         "tags": ["infrastructure", "engineering", "cloud-native"]
       }
     ]
@@ -130,13 +116,6 @@
         "tags": ["education", "visualization", "transformer"]
       },
       {
-        "name": "Vicki Boykis",
-        "rss_url": "https://vickiboykis.com/feed/",
-        "focus": "ML 工程实践与数据平台",
-        "reason": "资深 ML 工程师，分享真实的工程问题与解决方案",
-        "tags": ["ml-engineering", "data-platform", "practice"]
-      },
-      {
         "name": "Chip Huyen's Blog",
         "rss_url": "https://huyenchip.com/feed.xml",
         "focus": "ML Ops、AI 产品化",
@@ -145,9 +124,9 @@
       },
       {
         "name": "Lilian Weng's Blog",
-        "rss_url": "https://lilianweng.github.io/feed.xml",
+        "rss_url": "https://lilianweng.github.io/lil-log/feed.xml",
         "focus": "深度学习、强化学习理论",
-        "reason": "OpenAI 安全团队负责人，深度技术博客涵盖前沿研究",
+        "reason": "OpenAI 安全团队负责人，深度技术博客涵盖前沿研究（修正路径）",
         "tags": ["research", "rl", "safety"]
       },
       {
