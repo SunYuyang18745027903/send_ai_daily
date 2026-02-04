@@ -27,6 +27,9 @@ import feedparser
 from dateutil import parser as date_parser
 from dotenv import load_dotenv
 
+# 导入提取原文链接的模块
+import extract_links
+
 # 设置 UTF-8 输出，避免 Windows 下 GBK 编码问题
 if sys.platform == 'win32':
     import io
@@ -47,7 +50,7 @@ logger = logging.getLogger(__name__)
 
 # 基础配置
 MAX_CANDIDATES = 60
-TOP_N = 3
+TOP_N = 5
 HOURS_WINDOW = 48
 RSS_TIMEOUT = 10
 MAX_WORKERS = 5  # 并行抓取线程数
@@ -327,6 +330,15 @@ def fetch_single_feed(url: str, sent_hashes: Set[str]) -> List[Dict]:
             if not link: 
                 continue
                 
+            # 当RSS源的前缀地址为http://100.68.66.102:18001/feed时，获取原文链接
+            if url.startswith("http://100.68.66.102:18001/feed"):
+                original_link = extract_links.get_original_link(link)
+                if original_link:
+                    logger.info(f"替换为原文链接: {link} -> {original_link}")
+                    link = original_link
+                else:
+                    logger.warning(f"未找到原文链接: {link}")
+            
             link_hash = hash_link(link)
             if link_hash in sent_hashes:
                 continue
